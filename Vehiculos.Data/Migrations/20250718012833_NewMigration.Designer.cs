@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vehiculos.Data.Context;
 
@@ -10,9 +11,11 @@ using Vehiculos.Data.Context;
 namespace Vehiculos.Data.Migrations
 {
     [DbContext(typeof(VehiculosContext))]
-    partial class VehiculosContextModelSnapshot : ModelSnapshot
+    [Migration("20250718012833_NewMigration")]
+    partial class NewMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,11 +26,11 @@ namespace Vehiculos.Data.Migrations
 
             modelBuilder.Entity("Vehiculos.Data.Models.Usuario", b =>
                 {
-                    b.Property<int>("UsuarioId")
+                    b.Property<int>("UsuariaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuarioId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuariaId"));
 
                     b.Property<double>("Balance")
                         .HasColumnType("float");
@@ -36,7 +39,7 @@ namespace Vehiculos.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UsuarioId");
+                    b.HasKey("UsuariaId");
 
                     b.ToTable("Usuarios");
                 });
