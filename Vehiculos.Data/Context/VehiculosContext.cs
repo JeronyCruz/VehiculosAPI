@@ -13,4 +13,5 @@ public class VehiculosContext : DbContext
     public VehiculosContext(DbContextOptions<VehiculosContext> options) : base(options) { }
 
     public DbSet<Vehiculo> Vehiculos { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
 }
